@@ -6,8 +6,6 @@ class NoteForm extends React.Component {
     this.state = {
       title: '',
       content: '',
-      editing: false,
-      completed: false,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -16,7 +14,8 @@ class NoteForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault()
-    return this.props.onComplete(this.state)
+    this.props.onComplete({...this.state})
+    this.setState({title: '', content: ''})
   }
 
   handleChange(e){

@@ -15,7 +15,10 @@ class Dashboard extends React.Component {
   }
 
   addNote(note){
+    note = {...note}
     note.id = uuidv1()
+    note.editing = false
+    note.completed = false
     this.setState(prevState => ({
       notes: [...prevState.notes, note],
     }))
@@ -23,8 +26,8 @@ class Dashboard extends React.Component {
 
   removeNote(note){
     this.setState(prevState => ({
-      notes: prevState.notes.filter((kept) => {
-        return kept.id !== note.id
+      notes: prevState.notes.filter((item) => {
+        return item.id !== note.id
       })
     }))
   }
@@ -38,9 +41,7 @@ class Dashboard extends React.Component {
       <div className='dashboard'>
         <h1> dash Component </h1>
         <NoteForm onComplete={this.addNote} />
-        <NoteList
-        notes={this.state.notes}
-        removeNote={this.removeNote}/>
+        <NoteList notes={this.state.notes} removeNote={this.removeNote}/>
       </div>
     )
   }
