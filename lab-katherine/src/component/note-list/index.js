@@ -10,9 +10,7 @@ class NoteList extends React.Component {
     return (
       <ul className="NoteList">
         {this.props.notes.map(result =>
-          <li>
-            <NoteItem note={result} removeNote={this.props.removeNote}/>
-          </li>
+          <NoteItem note={result} removeNote={this.props.removeNote}/>
         )}
       </ul>
     )
