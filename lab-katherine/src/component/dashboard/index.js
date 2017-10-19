@@ -1,5 +1,7 @@
 import React from 'react'
-import ExpenseForm from '../note-form'
+import NoteForm from '../note-form'
+import NoteList from '../note-list'
+import uuidv1 from 'uuid/v1'
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -8,14 +10,22 @@ class Dashboard extends React.Component {
       notes: [],
     }
 
-    this.addExpense = this.addExpense.bind(this)
+    this.addNote = this.addNote.bind(this)
+    this.removeNote = this.removeNote.bind(this)
   }
 
-  addExpense(note){
-    note.create = new Date()
-    note.id = Math.random()
+  addNote(note){
+    note.id = uuidv1()
     this.setState(prevState => ({
       notes: [...prevState.notes, note],
+    }))
+  }
+
+  removeNote(note){
+    this.setState(prevState => ({
+      notes: prevState.notes.filter((kept) => {
+        return kept.id !== note.id
+      })
     }))
   }
 
@@ -24,12 +34,13 @@ class Dashboard extends React.Component {
   }
 
   render(){
-    let total = this.state.notes.reduce((result, note) => result + note.price, 0)
     return (
       <div className='dashboard'>
         <h1> dash Component </h1>
-        <ExpenseForm onComplete={this.addExpense} />
-        <p> total: ${total} </p>
+        <NoteForm onComplete={this.addNote} />
+        <NoteList
+        notes={this.state.notes}
+        removeNote={this.removeNote}/>
       </div>
     )
   }
