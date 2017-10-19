@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
   render(){
     return (
       <div className='dashboard'>
-        <h1> dash Component </h1>
+        <h1> dash </h1>
         <NoteForm onComplete={this.addNote} />
         <NoteList notes={this.state.notes} removeNote={this.removeNote}/>
       </div>

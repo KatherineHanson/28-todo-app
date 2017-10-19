@@ -13,7 +13,7 @@ class App extends React.Component {
               <h1> todo </h1>
               <nav>
                 <ul>
-                  <li> <Link to='/'> landing </Link> </li>
+                  <li> <Link to='/'> home </Link> </li>
                   <li> <Link to='/dashboard'> dashboard</Link> </li>
                 </ul>
               </nav>
