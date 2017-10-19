@@ -8,10 +8,10 @@ class NoteList extends React.Component {
 
   render(){
     return (
-      <ul>
+      <ul className="NoteList">
         {this.props.notes.map(result =>
           <li>
-            <NoteItem note={result}/>
+            <NoteItem note={result} removeNote={this.props.removeNote}/>
           </li>
         )}
       </ul>
