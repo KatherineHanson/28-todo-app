@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
       <div className='dashboard'>
         <h1> dash Component </h1>
         <NoteForm onComplete={this.addNote} />
-        <NoteList notes={this.state.notes} removeNote={this.removeNote updateNote={this.updateNote}/>
+        <NoteList notes={this.state.notes} removeNote={this.removeNote} updateNote={this.updateNote}/>
       </div>
     )
   }

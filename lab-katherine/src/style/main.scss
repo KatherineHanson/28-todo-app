@@ -3,3 +3,19 @@ $color-primary: #7FFFD4;
 html, body {
   background-color: $color-primary;
 }
+
+.modal {
+  position: 'fixed';
+  top: 0;
+  left: 0;
+  width: '100%';
+  height: '100%';
+  background-color: 'red';
+  main: {
+    position: 'fixed';
+    background-color: 'green';
+    top: '50%';
+    left: '50%';
+    transform: 'translate(-50%, -50%)';
+  }
+}

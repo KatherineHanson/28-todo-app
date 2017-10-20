@@ -23,7 +23,7 @@ class NoteForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault()
-    this.props.onComplete({...this.state})
+    this.props.onComplete(this.state)
     this.setState(emptyState)
     console.log('reset form')
   }
@@ -34,6 +34,7 @@ class NoteForm extends React.Component {
   }
 
   render(){
+    let buttonText = this.props.note ? 'update note' : 'create note'
     return (
       <form
         className='note-form'
@@ -54,7 +55,7 @@ class NoteForm extends React.Component {
             value={this.state.content}
             onChange={this.handleChange}
             />
-        <button type='submit'> create note </button>
+        <button type='submit'> {buttonText} </button>
       </form>
     )
 
