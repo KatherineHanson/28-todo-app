@@ -5,6 +5,10 @@ Enzyme.configure({ adapter: new Adapter() });
 
 import Dashboard from '../component/dashboard'
 
+global.requestAnimationFrame = function(callback) {
+    setTimeout(callback, 0);
+}
+
 describe('Dashboard', () => {
   test('inital state is correct', () => {
     let wrapper = mount(<Dashboard />)

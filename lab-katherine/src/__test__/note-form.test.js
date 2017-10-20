@@ -5,6 +5,10 @@ Enzyme.configure({ adapter: new Adapter() });
 
 import NoteForm from '../component/note-form'
 
+global.requestAnimationFrame = function(callback) {
+    setTimeout(callback, 0);
+}
+
 describe('NoteForm', () => {
   test('inital state is correct', () => {
     let wrapper = mount(<NoteForm />)
