@@ -1,21 +1,31 @@
 import React from 'react'
 
+let emptyState = {
+  title: '',
+  content: '',
+}
+
 class NoteForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      title: '',
-      content: '',
-    }
+    let {note} = props
+    this.state = note ? note : emptyState
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.note){
+      this.setState(nextProps.note)
+    }
+  }
+
   handleSubmit(e){
     e.preventDefault()
     this.props.onComplete({...this.state})
-    this.setState({title: '', content: ''})
+    this.setState(emptyState)
+    console.log('reset form')
   }
 
   handleChange(e){
