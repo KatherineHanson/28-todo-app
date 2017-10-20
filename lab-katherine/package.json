@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/KatherineHanson/28-todo-app#readme",
   "devDependencies": {
-    "core-js": "^2.5.1",
     "jest": "^21.2.1",
     "raf": "^3.4.0"
   },
