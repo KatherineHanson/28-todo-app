@@ -15,8 +15,10 @@ class NoteItem extends React.Component {
 
     return (
       <li className='note-item'>
-        <h2>{note.title}</h2>
-        <p>{note.content}</p>
+        <div onDoubleClick={showEdit}>
+          <h2>{note.title}</h2>
+          <p>{note.content}</p>
+        </div>
         <button onClick={showEdit}> edit </button>
         <button onClick={() => removeNote(note) }> delete </button>
 
