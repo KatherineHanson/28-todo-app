@@ -1,9 +1,5 @@
 import React from 'react'
 
-// let modalStyles = (props) => ({
-//   display: props.show ? 'block' : 'none',
-// })
-
 let modalStyles = (props) => ({
   position: 'fixed',
   top: 0,
