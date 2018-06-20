@@ -1,4 +1,4 @@
-401 JS --  Lab 28 Todo
+Todo App
 ===
 
 ## Submission Instructions
